@@ -1,0 +1,1723 @@
+--[[ Lua code. See documentation: https://api.tabletopsimulator.com/ --]]
+
+--[[ The onLoad event is called after the game save finishes loading. --]]
+function onLoad()
+    StartingPlayer = getObjectFromGUID('5c94da')
+    StartingPlayerToken = getObjectFromGUID('ede71b')
+    Sector1Deck = getObjectFromGUID('c1471e')
+    Sector11 = getObjectFromGUID('2f6af8')
+    Sector12 = getObjectFromGUID('3fd8b0')
+    Sector13 = getObjectFromGUID('4faee4')
+    Sector14 = getObjectFromGUID('6f1ab7')
+    Sector15 = getObjectFromGUID('4e14f6')
+    Sector16=  getObjectFromGUID('f45664')
+    Sector2Deck = getObjectFromGUID('9f6e2d')
+    Sector21 = getObjectFromGUID('f2a756')
+    Sector22 = getObjectFromGUID('dcbd86')
+    Sector23 = getObjectFromGUID('1aae77')
+    Sector24 = getObjectFromGUID('d39780')
+    Sector25 = getObjectFromGUID('dd4e5a')
+    Sector26 = getObjectFromGUID('44ebd0')
+    Sector3Deck = getObjectFromGUID('709338')
+    Sector31 = getObjectFromGUID('abf34d')
+    Sector32 = getObjectFromGUID('3c1ec6')
+    Sector33 = getObjectFromGUID('3454b5')
+    Sector34 = getObjectFromGUID('a406ac')
+    Sector35 = getObjectFromGUID('ad25a1')
+    Sector36 = getObjectFromGUID('6d85cc')
+    GreenPlayerBoard = getObjectFromGUID('e58bea')
+    GreenPlayerBoard1 = getObjectFromGUID('4b3a9e')
+    GreenPlayerBoard2 = getObjectFromGUID('df0dd7')
+    GreenPlayerBoard3 = getObjectFromGUID('dd9a11')
+    GreenPlayerBoard4 = getObjectFromGUID('65e693')
+    GreenPlayerBoard5 = getObjectFromGUID('0e0d58')
+    GreenPlayerBoard6 = getObjectFromGUID('0e6cb8')
+    GreenPlayerBoard7 = getObjectFromGUID('2186ff')
+    GreenPlayerBoard8 = getObjectFromGUID('bcd42b')
+    GreenPlayerBoard9 = getObjectFromGUID('8cdd7c')
+    GreenPlayerBoard10 = getObjectFromGUID('b88daf')
+    GreenPlayerBoard11 = getObjectFromGUID('e8fe84')
+    GreenPlayerBoard12 = getObjectFromGUID('e0e383')
+    GreenBoard = {GreenPlayerBoard1.getPosition(), GreenPlayerBoard2.getPosition(),
+    GreenPlayerBoard3.getPosition(), GreenPlayerBoard4.getPosition(), GreenPlayerBoard5.getPosition(),
+    GreenPlayerBoard6.getPosition(), GreenPlayerBoard7.getPosition(), GreenPlayerBoard8.getPosition(),
+    GreenPlayerBoard9.getPosition(), GreenPlayerBoard10.getPosition(), GreenPlayerBoard11.getPosition(),
+    GreenPlayerBoard12.getPosition()}
+    BluePlayerBoard = getObjectFromGUID('93553d')
+    BluePlayerBoard1 = getObjectFromGUID('c1f6ed')
+    BluePlayerBoard2 = getObjectFromGUID('218833')
+    BluePlayerBoard3 = getObjectFromGUID('b6a3bb')
+    BluePlayerBoard4 = getObjectFromGUID('23b599')
+    BluePlayerBoard5 = getObjectFromGUID('3340bf')
+    BluePlayerBoard6 = getObjectFromGUID('4fed4b')
+    BluePlayerBoard7 = getObjectFromGUID('173f6b')
+    BluePlayerBoard8 = getObjectFromGUID('1ed112')
+    BluePlayerBoard9 = getObjectFromGUID('465b50')
+    BluePlayerBoard10 = getObjectFromGUID('fd8fa4')
+    BluePlayerBoard11 = getObjectFromGUID('fb44d6')
+    BluePlayerBoard12 = getObjectFromGUID('e8ed28')
+    BlueBoard = {BluePlayerBoard1.getPosition(), BluePlayerBoard2.getPosition(),
+    BluePlayerBoard3.getPosition(), BluePlayerBoard4.getPosition(), BluePlayerBoard5.getPosition(),
+    BluePlayerBoard6.getPosition(), BluePlayerBoard7.getPosition(), BluePlayerBoard8.getPosition(),
+    BluePlayerBoard9.getPosition(), BluePlayerBoard10.getPosition(), BluePlayerBoard11.getPosition(),
+    BluePlayerBoard12.getPosition()}
+    YellowPlayerBoard = getObjectFromGUID('2eaddb')
+    YellowPlayerBoard1 = getObjectFromGUID('7db764')
+    YellowPlayerBoard2 = getObjectFromGUID('462f81')
+    YellowPlayerBoard3 = getObjectFromGUID('3dce1c')
+    YellowPlayerBoard4 = getObjectFromGUID('96e4dd')
+    YellowPlayerBoard5 = getObjectFromGUID('f5949f')
+    YellowPlayerBoard6 = getObjectFromGUID('a5c289')
+    YellowPlayerBoard7 = getObjectFromGUID('73947c')
+    YellowPlayerBoard8 = getObjectFromGUID('8d8f04')
+    YellowPlayerBoard9 = getObjectFromGUID('68129e')
+    YellowPlayerBoard10 = getObjectFromGUID('217d9b')
+    YellowPlayerBoard11 = getObjectFromGUID('53edce')
+    YellowPlayerBoard12 = getObjectFromGUID('b0f3c1')
+    YellowBoard = {YellowPlayerBoard1.getPosition(), YellowPlayerBoard2.getPosition(),
+    YellowPlayerBoard3.getPosition(), YellowPlayerBoard4.getPosition(), YellowPlayerBoard5.getPosition(),
+    YellowPlayerBoard6.getPosition(), YellowPlayerBoard7.getPosition(), YellowPlayerBoard8.getPosition(),
+    YellowPlayerBoard9.getPosition(), YellowPlayerBoard10.getPosition(), YellowPlayerBoard11.getPosition(),
+    YellowPlayerBoard12.getPosition()}
+    RedPlayerBoard = getObjectFromGUID('0b40bb')
+    RedPlayerBoard1 = getObjectFromGUID('b5ad97')
+    RedPlayerBoard2 = getObjectFromGUID('00d6f0')
+    RedPlayerBoard3 = getObjectFromGUID('4c499b')
+    RedPlayerBoard4 = getObjectFromGUID('4c8fac')
+    RedPlayerBoard5 = getObjectFromGUID('428bf0')
+    RedPlayerBoard6 = getObjectFromGUID('727bf9')
+    RedPlayerBoard7 = getObjectFromGUID('9c866a')
+    RedPlayerBoard8 = getObjectFromGUID('737b97')
+    RedPlayerBoard9 = getObjectFromGUID('e4f4a6')
+    RedPlayerBoard10 = getObjectFromGUID('5b61f4')
+    RedPlayerBoard11 = getObjectFromGUID('a9957e')
+    RedPlayerBoard12 = getObjectFromGUID('716f2c')
+    RedBoard = {RedPlayerBoard1.getPosition(), RedPlayerBoard2.getPosition(),
+    RedPlayerBoard3.getPosition(), RedPlayerBoard4.getPosition(), RedPlayerBoard5.getPosition(),
+    RedPlayerBoard6.getPosition(), RedPlayerBoard7.getPosition(), RedPlayerBoard8.getPosition(),
+    RedPlayerBoard9.getPosition(), RedPlayerBoard10.getPosition(), RedPlayerBoard11.getPosition(),
+    RedPlayerBoard12.getPosition()}
+    PurplePlayerBoard = getObjectFromGUID('707903')
+    PurplePlayerBoard1 = getObjectFromGUID('dd2ded')
+    PurplePlayerBoard2 = getObjectFromGUID('a8a985')
+    PurplePlayerBoard3 = getObjectFromGUID('9c4b0c')
+    PurplePlayerBoard4 = getObjectFromGUID('64b697')
+    PurplePlayerBoard5 = getObjectFromGUID('33a93a')
+    PurplePlayerBoard6 = getObjectFromGUID('667627')
+    PurplePlayerBoard7 = getObjectFromGUID('a01003')
+    PurplePlayerBoard8 = getObjectFromGUID('88a32c')
+    PurplePlayerBoard9 = getObjectFromGUID('2c9482')
+    PurplePlayerBoard10 = getObjectFromGUID('4d4260')
+    PurplePlayerBoard11 = getObjectFromGUID('34871c')
+    PurplePlayerBoard12 = getObjectFromGUID('fea48b')
+    PurpleBoard = {PurplePlayerBoard1.getPosition(), PurplePlayerBoard2.getPosition(),
+    PurplePlayerBoard3.getPosition(), PurplePlayerBoard4.getPosition(), PurplePlayerBoard5.getPosition(),
+    PurplePlayerBoard6.getPosition(), PurplePlayerBoard7.getPosition(), PurplePlayerBoard8.getPosition(),
+    PurplePlayerBoard9.getPosition(), PurplePlayerBoard10.getPosition(), PurplePlayerBoard11.getPosition(),
+    PurplePlayerBoard12.getPosition()}
+    y = 5.00 --starting y position of deployed stacks.  To increase deployment stack size, increase this number
+    z = 1.07
+    for i=1, 12 do
+        GreenBoard[i].y = y
+        BlueBoard[i].y = y
+        YellowBoard[i].y = y
+        RedBoard[i].y = y
+        PurpleBoard[i].y = y
+        GreenBoard[i].z = GreenBoard[i].z + z
+        BlueBoard[i].z = BlueBoard[i].z + z
+        YellowBoard[i].z = YellowBoard[i].z + z
+        PurpleBoard[i].z = PurpleBoard[i].z + z
+        RedBoard[i].z = RedBoard[i].z + z
+    end
+    math.randomseed(os.time())
+
+    StartingPlayer.createButton({
+        click_function = "SelectStartingPlayer",
+        function_owner = Global,
+        label          = "Start Game",
+        position       = {0,-0.25,0},
+        rotation       = {0,180,0},
+        width          = 500,
+        height         = 10,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    Sector1Deck.createButton({
+        click_function = "ResupplySector1",
+        function_owner = Global,
+        label          = "Resupply",
+        position       = {0,0.4,-0.35},
+        rotation       = {0,180,0},
+        width          = 500,
+        height         = 10,
+        font_size      = 90,
+        color          = {0, 0, 0},
+        font_color     = {0, 1, 0},
+    })
+    Sector2Deck.createButton({
+        click_function = "ResupplySector2",
+        function_owner = Global,
+        label          = "Resupply",
+        position       = {0,0.4,-0.35},
+        rotation       = {0,180,0},
+        width          = 500,
+        height         = 10,
+        font_size      = 90,
+        color          = {0, 0, 0},
+        font_color     = {255/255, 255/255, 0/255},
+    })
+    Sector3Deck.createButton({
+        click_function = "ResupplySector3",
+        function_owner = Global,
+        label          = "Resupply",
+        position       = {0,0.4,-0.35},
+        rotation       = {0,180,0},
+        width          = 500,
+        height         = 10,
+        font_size      = 90,
+        color          = {0, 0, 0},
+        font_color     = {255/255, 0/255, 255/255},
+    })
+    GreenPlayerBoard1.createButton({
+        click_function = "GreenDeploy1a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard2.createButton({
+        click_function = "GreenDeploy2a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard3.createButton({
+        click_function = "GreenDeploy3a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard4.createButton({
+        click_function = "GreenDeploy4a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard5.createButton({
+        click_function = "GreenDeploy5a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard6.createButton({
+        click_function = "GreenDeploy6a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard7.createButton({
+        click_function = "GreenDeploy7a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard8.createButton({
+        click_function = "GreenDeploy8a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard9.createButton({
+        click_function = "GreenDeploy9a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard10.createButton({
+        click_function = "GreenDeploy10a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard11.createButton({
+        click_function = "GreenDeploy11a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    GreenPlayerBoard12.createButton({
+        click_function = "GreenDeploy12a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard1.createButton({
+        click_function = "BlueDeploy1a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard2.createButton({
+        click_function = "BlueDeploy2a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard3.createButton({
+        click_function = "BlueDeploy3a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard4.createButton({
+        click_function = "BlueDeploy4a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard5.createButton({
+        click_function = "BlueDeploy5a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard6.createButton({
+        click_function = "BlueDeploy6a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard7.createButton({
+        click_function = "BlueDeploy7a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard8.createButton({
+        click_function = "BlueDeploy8a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard9.createButton({
+        click_function = "BlueDeploy9a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard10.createButton({
+        click_function = "BlueDeploy10a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard11.createButton({
+        click_function = "BlueDeploy11a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    BluePlayerBoard12.createButton({
+        click_function = "BlueDeploy12a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard1.createButton({
+        click_function = "YellowDeploy1a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard2.createButton({
+        click_function = "YellowDeploy2a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard3.createButton({
+        click_function = "YellowDeploy3a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard4.createButton({
+        click_function = "YellowDeploy4a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard5.createButton({
+        click_function = "YellowDeploy5a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard6.createButton({
+        click_function = "YellowDeploy6a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard7.createButton({
+        click_function = "YellowDeploy7a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard8.createButton({
+        click_function = "YellowDeploy8a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard9.createButton({
+        click_function = "YellowDeploy9a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard10.createButton({
+        click_function = "YellowDeploy10a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard11.createButton({
+        click_function = "YellowDeploy11a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    YellowPlayerBoard12.createButton({
+        click_function = "YellowDeploy12a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard1.createButton({
+        click_function = "RedDeploy1a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard2.createButton({
+        click_function = "RedDeploy2a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard3.createButton({
+        click_function = "RedDeploy3a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard4.createButton({
+        click_function = "RedDeploy4a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard5.createButton({
+        click_function = "RedDeploy5a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard6.createButton({
+        click_function = "RedDeploy6a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard7.createButton({
+        click_function = "RedDeploy7a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard8.createButton({
+        click_function = "RedDeploy8a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard9.createButton({
+        click_function = "RedDeploy9a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard10.createButton({
+        click_function = "RedDeploy10a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard11.createButton({
+        click_function = "RedDeploy11a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    RedPlayerBoard12.createButton({
+        click_function = "RedDeploy12a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard1.createButton({
+        click_function = "PurpleDeploy1a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard2.createButton({
+        click_function = "PurpleDeploy2a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard3.createButton({
+        click_function = "PurpleDeploy3a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard4.createButton({
+        click_function = "PurpleDeploy4a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard5.createButton({
+        click_function = "PurpleDeploy5a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard6.createButton({
+        click_function = "PurpleDeploy6a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard7.createButton({
+        click_function = "PurpleDeploy7a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard8.createButton({
+        click_function = "PurpleDeploy8a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard9.createButton({
+        click_function = "PurpleDeploy9a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard10.createButton({
+        click_function = "PurpleDeploy10a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard11.createButton({
+        click_function = "PurpleDeploy11a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+    PurplePlayerBoard12.createButton({
+        click_function = "PurpleDeploy12a",
+        function_owner = Global,
+        label          = "Deploy",
+        position       = {0.1,-0.15,1.25},
+        rotation       = {0,180,0},
+        width          = 300,
+        height         = 200,
+        font_size      = 80,
+        color          = {0, 0, 0},
+        font_color     = {1, 1, 1},
+    })
+
+
+
+    --[[ print('onLoad!') --]]
+end
+
+function ResupplySector1()
+    local sector1deck = find_pile(Sector1Deck)
+    local sector11 = find_pile(Sector11)
+    local sector12 = find_pile(Sector12)
+    local sector13 = find_pile(Sector13)
+    local sector14 = find_pile(Sector14)
+    local sector15 = find_pile(Sector15)
+    local sector16 = find_pile(Sector16)
+
+    if (not sector11) then
+        sector1deck.takeObject({flip=true, position = Sector11.getPosition()})
+        for _, obj in ipairs(Sector1Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector1deck.flip()
+                sector1deck.setPositionSmooth(sector11.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector12) then
+        sector1deck.takeObject({flip=true, position = Sector12.getPosition()})
+        for _, obj in ipairs(Sector1Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector1deck.flip()
+                sector1deck.setPositionSmooth(sector12.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector13) then
+        sector1deck.takeObject({flip=true, position = Sector13.getPosition()})
+        for _, obj in ipairs(Sector1Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector1deck.flip()
+                sector1deck.setPositionSmooth(sector13.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector14) then
+        sector1deck.takeObject({flip=true, position = Sector14.getPosition()})
+        for _, obj in ipairs(Sector1Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector1deck.flip()
+                sector1deck.setPositionSmooth(sector14.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector15) then
+        sector1deck.takeObject({flip=true, position = Sector15.getPosition()})
+        for _, obj in ipairs(Sector1Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector1deck.flip()
+                sector1deck.setPositionSmooth(sector15.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector16) then
+        sector1deck.takeObject({flip=true, position = Sector16.getPosition()})
+        for _, obj in ipairs(Sector1Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector1deck.flip()
+                sector1deck.setPositionSmooth(sector16.getPosition())
+                break
+            end
+        end
+    end
+end
+
+function find_pile(zone)
+    local objects = zone.getObjects()
+    local num_decks = 0
+	local deck = nil
+     for index, object in ipairs(objects) do
+            local type = object.tag
+            if (string.find(type, 'Deck') or string.find(type, 'Card')) then
+                num_decks = num_decks + 1
+                deck = object
+            end
+      end
+      if(num_decks==1) then
+		return deck
+	  else
+		return nil
+	  end
+end
+
+function ResupplySector2()
+    local sector2deck = find_pile(Sector2Deck)
+    local sector21 = find_pile(Sector21)
+    local sector22 = find_pile(Sector22)
+    local sector23 = find_pile(Sector23)
+    local sector24 = find_pile(Sector24)
+    local sector25 = find_pile(Sector25)
+    local sector26 = find_pile(Sector26)
+
+    if (not sector21) then
+        sector2deck.takeObject({flip=true, position = Sector21.getPosition()})
+        for _, obj in ipairs(Sector2Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector2deck.flip()
+                sector2deck.setPositionSmooth(sector21.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector22) then
+        sector2deck.takeObject({flip=true, position = Sector22.getPosition()})
+        for _, obj in ipairs(Sector2Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector2deck.flip()
+                sector2deck.setPositionSmooth(sector22.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector23) then
+        sector2deck.takeObject({flip=true, position = Sector23.getPosition()})
+        for _, obj in ipairs(Sector2Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector2deck.flip()
+                sector2deck.setPositionSmooth(sector23.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector24) then
+        sector2deck.takeObject({flip=true, position = Sector24.getPosition()})
+        for _, obj in ipairs(Sector2Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector2deck.flip()
+                sector2deck.setPositionSmooth(sector24.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector25) then
+        sector2deck.takeObject({flip=true, position = Sector25.getPosition()})
+        for _, obj in ipairs(Sector2Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector2deck.flip()
+                sector2deck.setPositionSmooth(sector25.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector26) then
+        sector2deck.takeObject({flip=true, position = Sector26.getPosition()})
+        for _, obj in ipairs(Sector2Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector2deck.flip()
+                sector2deck.setPositionSmooth(sector26.getPosition())
+                break
+            end
+        end
+    end
+end
+
+function ResupplySector3()
+    local sector3deck = find_pile(Sector3Deck)
+    local sector31 = find_pile(Sector31)
+    local sector32 = find_pile(Sector32)
+    local sector33 = find_pile(Sector33)
+    local sector34 = find_pile(Sector34)
+    local sector35 = find_pile(Sector35)
+    local sector36 = find_pile(Sector36)
+
+    if (not sector31) then
+        sector3deck.takeObject({flip=true, position = Sector31.getPosition()})
+        for _, obj in ipairs(Sector3Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector3deck.flip()
+                sector3deck.setPositionSmooth(sector31.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector32) then
+        sector3deck.takeObject({flip=true, position = Sector32.getPosition()})
+        for _, obj in ipairs(Sector3Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector3deck.flip()
+                sector3deck.setPositionSmooth(sector32.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector33) then
+        sector3deck.takeObject({flip=true, position = Sector33.getPosition()})
+        for _, obj in ipairs(Sector3Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector3deck.flip()
+                sector3deck.setPositionSmooth(sector33.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector34) then
+        sector3deck.takeObject({flip=true, position = Sector34.getPosition()})
+        for _, obj in ipairs(Sector3Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector3deck.flip()
+                sector3deck.setPositionSmooth(sector34.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector35) then
+        sector3deck.takeObject({flip=true, position = Sector35.getPosition()})
+        for _, obj in ipairs(Sector3Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector3deck.flip()
+                sector3deck.setPositionSmooth(sector35.getPosition())
+                break
+            end
+        end
+    end
+    if (not sector36) then
+        sector3deck.takeObject({flip=true, position = Sector36.getPosition()})
+        for _, obj in ipairs(Sector3Deck.getObjects()) do
+            if obj.tag == "Card" then
+                sector3deck.flip()
+                sector3deck.setPositionSmooth(sector36.getPosition())
+                break
+            end
+        end
+    end
+end
+
+function find_pile(zone)
+    local objects = zone.getObjects()
+    local num_decks = 0
+	local deck = nil
+     for index, object in ipairs(objects) do
+            local type = object.tag
+            if (string.find(type, 'Deck') or string.find(type, 'Card')) then
+                num_decks = num_decks + 1
+                deck = object
+            end
+      end
+      if(num_decks==1) then
+		return deck
+	  else
+		return nil
+	  end
+end
+
+function wait(n)
+    for i=1, n, 1 do
+        coroutine.yield(0)
+    end
+end
+
+function GreenDeploy1a()
+    local board1 = find_pile(GreenPlayerBoard1)
+    if (board1~=nil) then
+        board1.setRotationSmooth({0,0,0})
+        board1.lock(true)
+        board1.setPosition({GreenBoard[1].x, GreenBoard[1].y, GreenBoard[1].z})
+        GreenBoard[1].y = GreenBoard[1].y - 0.01
+        GreenBoard[1].z = GreenBoard[1].z + 0.91
+    else
+    end
+end
+
+function GreenDeploy2a()
+    local board2 = find_pile(GreenPlayerBoard2)
+    board2.setRotationSmooth(({0,0,0}))
+    board2.lock(true)
+    board2.setPosition({GreenBoard[2].x, GreenBoard[2].y, GreenBoard[2].z})
+    GreenBoard[2].y = GreenBoard[2].y - 0.01
+    GreenBoard[2].z = GreenBoard[2].z + 0.91
+end
+
+function GreenDeploy3a()
+    local board3 = find_pile(GreenPlayerBoard3)
+    board3.setRotationSmooth(({0,0,0}))
+    board3.lock(true)
+    board3.setPosition({GreenBoard[3].x, GreenBoard[3].y, GreenBoard[3].z})
+    GreenBoard[3].y = GreenBoard[3].y - 0.01
+    GreenBoard[3].z = GreenBoard[3].z + 0.91
+end
+
+function GreenDeploy4a()
+    local board4 = find_pile(GreenPlayerBoard4)
+    board4.setRotationSmooth(({0,0,0}))
+    board4.lock(true)
+    board4.setPosition({GreenBoard[4].x, GreenBoard[4].y, GreenBoard[4].z})
+    GreenBoard[4].y = GreenBoard[4].y - 0.01
+    GreenBoard[4].z = GreenBoard[4].z + 0.91
+end
+
+function GreenDeploy5a()
+    local board5 = find_pile(GreenPlayerBoard5)
+    board5.setRotationSmooth(({0,0,0}))
+    board5.lock(true)
+    board5.setPosition({GreenBoard[5].x, GreenBoard[5].y, GreenBoard[5].z})
+    GreenBoard[5].y = GreenBoard[5].y - 0.01
+    GreenBoard[5].z = GreenBoard[5].z + 0.91
+end
+
+function GreenDeploy6a()
+    local board6 = find_pile(GreenPlayerBoard6)
+    board6.setRotationSmooth(({0,0,0}))
+    board6.lock(true)
+    board6.setPosition({GreenBoard[6].x, GreenBoard[6].y, GreenBoard[6].z})
+    GreenBoard[6].y = GreenBoard[6].y - 0.01
+    GreenBoard[6].z = GreenBoard[6].z + 0.91
+end
+
+function GreenDeploy7a()
+    local board7 = find_pile(GreenPlayerBoard7)
+    board7.setRotationSmooth(({0,0,0}))
+    board7.lock(true)
+    board7.setPosition({GreenBoard[7].x, GreenBoard[7].y, GreenBoard[7].z})
+    GreenBoard[7].y = GreenBoard[7].y - 0.01
+    GreenBoard[7].z = GreenBoard[7].z + 0.91
+end
+
+function GreenDeploy8a()
+    local board8 = find_pile(GreenPlayerBoard8)
+    board8.setRotationSmooth(({0,0,0}))
+    board8.lock(true)
+    board8.setPosition({GreenBoard[8].x, GreenBoard[8].y, GreenBoard[8].z})
+    GreenBoard[8].y = GreenBoard[8].y - 0.01
+    GreenBoard[8].z = GreenBoard[8].z + 0.91
+end
+
+function GreenDeploy9a()
+    local board9 = find_pile(GreenPlayerBoard9)
+    board9.setRotationSmooth(({0,0,0}))
+    board9.lock(true)
+    board9.setPosition({GreenBoard[9].x, GreenBoard[9].y, GreenBoard[9].z})
+    GreenBoard[9].y = GreenBoard[9].y - 0.01
+    GreenBoard[9].z = GreenBoard[9].z + 0.91
+end
+
+function GreenDeploy10a()
+    local board10 = find_pile(GreenPlayerBoard10)
+    board10.setRotationSmooth(({0,0,0}))
+    board10.lock(true)
+    board10.setPosition({GreenBoard[10].x, GreenBoard[10].y, GreenBoard[10].z})
+    GreenBoard[10].y = GreenBoard[10].y - 0.01
+    GreenBoard[10].z = GreenBoard[10].z + 0.91
+end
+
+function GreenDeploy11a()
+    local board11 = find_pile(GreenPlayerBoard11)
+    board11.setRotationSmooth(({0,0,0}))
+    board11.lock(true)
+    board11.setPosition({GreenBoard[11].x, GreenBoard[11].y, GreenBoard[11].z})
+    GreenBoard[11].y = GreenBoard[11].y - 0.01
+    GreenBoard[11].z = GreenBoard[11].z + 0.91
+end
+
+function GreenDeploy12a()
+    local board12 = find_pile(GreenPlayerBoard12)
+    board12.setRotationSmooth(({0,0,0}))
+    board12.lock(true)
+    board12.setPosition({GreenBoard[12].x, GreenBoard[12].y, GreenBoard[12].z})
+    GreenBoard[12].y = GreenBoard[12].y - 0.01
+    GreenBoard[12].z = GreenBoard[12].z + 0.91
+end
+
+function BlueDeploy1a()
+    local board1 = find_pile(BluePlayerBoard1)
+    board1.setRotationSmooth((({0,0,0})))
+    board1.lock(true)
+    board1.setPosition({BlueBoard[1].x, BlueBoard[1].y, BlueBoard[1].z})
+    BlueBoard[1].y = BlueBoard[1].y - 0.01
+    BlueBoard[1].z = BlueBoard[1].z + 0.91
+end
+
+function BlueDeploy2a()
+    local board2 = find_pile(BluePlayerBoard2)
+    board2.setRotationSmooth((({0,0,0})))
+    board2.lock(true)
+    board2.setPosition({BlueBoard[2].x, BlueBoard[2].y, BlueBoard[2].z})
+    BlueBoard[2].y = BlueBoard[2].y - 0.01
+    BlueBoard[2].z = BlueBoard[2].z + 0.91
+end
+
+function BlueDeploy3a()
+    local board3 = find_pile(BluePlayerBoard3)
+    board3.setRotationSmooth((({0,0,0})))
+    board3.lock(true)
+    board3.setPosition({BlueBoard[3].x, BlueBoard[3].y, BlueBoard[3].z})
+    BlueBoard[3].y = BlueBoard[3].y - 0.01
+    BlueBoard[3].z = BlueBoard[3].z + 0.91
+end
+
+function BlueDeploy4a()
+    local board4 = find_pile(BluePlayerBoard4)
+    board4.setRotationSmooth((({0,0,0})))
+    board4.lock(true)
+    board4.setPosition({BlueBoard[4].x, BlueBoard[4].y, BlueBoard[4].z})
+    BlueBoard[4].y = BlueBoard[4].y - 0.01
+    BlueBoard[4].z = BlueBoard[4].z + 0.91
+end
+
+function BlueDeploy5a()
+    local board5 = find_pile(BluePlayerBoard5)
+    board5.setRotationSmooth((({0,0,0})))
+    board5.lock(true)
+    board5.setPosition({BlueBoard[5].x, BlueBoard[5].y, BlueBoard[5].z})
+    BlueBoard[5].y = BlueBoard[5].y - 0.01
+    BlueBoard[5].z = BlueBoard[5].z + 0.91
+end
+
+function BlueDeploy6a()
+    local board6 = find_pile(BluePlayerBoard6)
+    board6.setRotationSmooth((({0,0,0})))
+    board6.lock(true)
+    board6.setPosition({BlueBoard[6].x, BlueBoard[6].y, BlueBoard[6].z})
+    BlueBoard[6].y = BlueBoard[6].y - 0.01
+    BlueBoard[6].z = BlueBoard[6].z + 0.91
+end
+
+function BlueDeploy7a()
+    local board7 = find_pile(BluePlayerBoard7)
+    board7.setRotationSmooth((({0,0,0})))
+    board7.lock(true)
+    board7.setPosition({BlueBoard[7].x, BlueBoard[7].y, BlueBoard[7].z})
+    BlueBoard[7].y = BlueBoard[7].y - 0.01
+    BlueBoard[7].z = BlueBoard[7].z + 0.91
+end
+
+function BlueDeploy8a()
+    local board8 = find_pile(BluePlayerBoard8)
+    board8.setRotationSmooth((({0,0,0})))
+    board8.lock(true)
+    board8.setPosition({BlueBoard[8].x, BlueBoard[8].y, BlueBoard[8].z})
+    BlueBoard[8].y = BlueBoard[8].y - 0.01
+    BlueBoard[8].z = BlueBoard[8].z + 0.91
+end
+
+function BlueDeploy9a()
+    local board9 = find_pile(BluePlayerBoard9)
+    board9.setRotationSmooth((({0,0,0})))
+    board9.lock(true)
+    board9.setPosition({BlueBoard[9].x, BlueBoard[9].y, BlueBoard[9].z})
+    BlueBoard[9].y = BlueBoard[9].y - 0.01
+    BlueBoard[9].z = BlueBoard[9].z + 0.91
+end
+
+function BlueDeploy10a()
+    local board10 = find_pile(BluePlayerBoard10)
+    board10.setRotationSmooth((({0,0,0})))
+    board10.lock(true)
+    board10.setPosition({BlueBoard[10].x, BlueBoard[10].y, BlueBoard[10].z})
+    BlueBoard[10].y = BlueBoard[10].y - 0.01
+    BlueBoard[10].z = BlueBoard[10].z + 0.91
+end
+
+function BlueDeploy11a()
+    local board11 = find_pile(BluePlayerBoard11)
+    board11.setRotationSmooth((({0,0,0})))
+    board11.lock(true)
+    board11.setPosition({BlueBoard[11].x, BlueBoard[11].y, BlueBoard[11].z})
+    BlueBoard[11].y = BlueBoard[11].y - 0.01
+    BlueBoard[11].z = BlueBoard[11].z + 0.91
+end
+
+function BlueDeploy12a()
+    local board12 = find_pile(BluePlayerBoard12)
+    board12.setRotationSmooth((({0,0,0})))
+    board12.lock(true)
+    board12.setPosition({BlueBoard[12].x, BlueBoard[12].y, BlueBoard[12].z})
+    BlueBoard[12].y = BlueBoard[12].y - 0.01
+    BlueBoard[12].z = BlueBoard[12].z + 0.91
+end
+
+function YellowDeploy1a()
+    local board1 = find_pile(YellowPlayerBoard1)
+    board1.setRotationSmooth((({0,0,0})))
+    board1.lock(true)
+    board1.setPosition({YellowBoard[1].x, YellowBoard[1].y, YellowBoard[1].z})
+    YellowBoard[1].y = YellowBoard[1].y - 0.01
+    YellowBoard[1].z = YellowBoard[1].z + 0.91
+end
+
+function YellowDeploy2a()
+    local board2 = find_pile(YellowPlayerBoard2)
+    board2.setRotationSmooth((({0,0,0})))
+    board2.lock(true)
+    board2.setPosition({YellowBoard[2].x, YellowBoard[2].y, YellowBoard[2].z})
+    YellowBoard[2].y = YellowBoard[2].y - 0.01
+    YellowBoard[2].z = YellowBoard[2].z + 0.91
+end
+
+function YellowDeploy3a()
+    local board3 = find_pile(YellowPlayerBoard3)
+    board3.setRotationSmooth((({0,0,0})))
+    board3.lock(true)
+    board3.setPosition({YellowBoard[3].x, YellowBoard[3].y, YellowBoard[3].z})
+    YellowBoard[3].y = YellowBoard[3].y - 0.01
+    YellowBoard[3].z = YellowBoard[3].z + 0.91
+end
+
+function YellowDeploy4a()
+    local board4 = find_pile(YellowPlayerBoard4)
+    board4.setRotationSmooth((({0,0,0})))
+    board4.lock(true)
+    board4.setPosition({YellowBoard[4].x, YellowBoard[4].y, YellowBoard[4].z})
+    YellowBoard[4].y = YellowBoard[4].y - 0.01
+    YellowBoard[4].z = YellowBoard[4].z + 0.91
+end
+
+function YellowDeploy5a()
+    local board5 = find_pile(YellowPlayerBoard5)
+    board5.setRotationSmooth((({0,0,0})))
+    board5.lock(true)
+    board5.setPosition({YellowBoard[5].x, YellowBoard[5].y, YellowBoard[5].z})
+    YellowBoard[5].y = YellowBoard[5].y - 0.01
+    YellowBoard[5].z = YellowBoard[5].z + 0.91
+end
+
+function YellowDeploy6a()
+    local board6 = find_pile(YellowPlayerBoard6)
+    board6.setRotationSmooth((({0,0,0})))
+    board6.lock(true)
+    board6.setPosition({YellowBoard[6].x, YellowBoard[6].y, YellowBoard[6].z})
+    YellowBoard[6].y = YellowBoard[6].y - 0.01
+    YellowBoard[6].z = YellowBoard[6].z + 0.91
+end
+
+function YellowDeploy7a()
+    local board7 = find_pile(YellowPlayerBoard7)
+    board7.setRotationSmooth((({0,0,0})))
+    board7.lock(true)
+    board7.setPosition({YellowBoard[7].x, YellowBoard[7].y, YellowBoard[7].z})
+    YellowBoard[7].y = YellowBoard[7].y - 0.01
+    YellowBoard[7].z = YellowBoard[7].z + 0.91
+end
+
+function YellowDeploy8a()
+    local board8 = find_pile(YellowPlayerBoard8)
+    board8.setRotationSmooth((({0,0,0})))
+    board8.lock(true)
+    board8.setPosition({YellowBoard[8].x, YellowBoard[8].y, YellowBoard[8].z})
+    YellowBoard[8].y = YellowBoard[8].y - 0.01
+    YellowBoard[8].z = YellowBoard[8].z + 0.91
+end
+
+function YellowDeploy9a()
+    local board9 = find_pile(YellowPlayerBoard9)
+    board9.setRotationSmooth((({0,0,0})))
+    board9.lock(true)
+    board9.setPosition({YellowBoard[9].x, YellowBoard[9].y, YellowBoard[9].z})
+    YellowBoard[9].y = YellowBoard[9].y - 0.01
+    YellowBoard[9].z = YellowBoard[9].z + 0.91
+end
+
+function YellowDeploy10a()
+    local board10 = find_pile(YellowPlayerBoard10)
+    board10.setRotationSmooth((({0,0,0})))
+    board10.lock(true)
+    board10.setPosition({YellowBoard[10].x, YellowBoard[10].y, YellowBoard[10].z})
+    YellowBoard[10].y = YellowBoard[10].y - 0.01
+    YellowBoard[10].z = YellowBoard[10].z + 0.91
+end
+
+function YellowDeploy11a()
+    local board11 = find_pile(YellowPlayerBoard11)
+    board11.setRotationSmooth((({0,0,0})))
+    board11.lock(true)
+    board11.setPosition({YellowBoard[11].x, YellowBoard[11].y, YellowBoard[11].z})
+    YellowBoard[11].y = YellowBoard[11].y - 0.01
+    YellowBoard[11].z = YellowBoard[11].z + 0.91
+end
+
+function YellowDeploy12a()
+    local board12 = find_pile(YellowPlayerBoard12)
+    board12.setRotationSmooth((({0,0,0})))
+    board12.lock(true)
+    board12.setPosition({YellowBoard[12].x, YellowBoard[12].y, YellowBoard[12].z})
+    YellowBoard[12].y = YellowBoard[12].y - 0.01
+    YellowBoard[12].z = YellowBoard[12].z + 0.91
+end
+
+function RedDeploy1a()
+    local board1 = find_pile(RedPlayerBoard1)
+    board1.setRotationSmooth((({0,0,0})))
+    board1.lock(true)
+    board1.setPosition({RedBoard[1].x, RedBoard[1].y, RedBoard[1].z})
+    RedBoard[1].y = RedBoard[1].y - 0.01
+    RedBoard[1].z = RedBoard[1].z + 0.91
+end
+
+function RedDeploy2a()
+    local board2 = find_pile(RedPlayerBoard2)
+    board2.setRotationSmooth((({0,0,0})))
+    board2.lock(true)
+    board2.setPosition({RedBoard[2].x, RedBoard[2].y, RedBoard[2].z})
+    RedBoard[2].y = RedBoard[2].y - 0.01
+    RedBoard[2].z = RedBoard[2].z + 0.91
+end
+
+function RedDeploy3a()
+    local board3 = find_pile(RedPlayerBoard3)
+    board3.setRotationSmooth((({0,0,0})))
+    board3.lock(true)
+    board3.setPosition({RedBoard[3].x, RedBoard[3].y, RedBoard[3].z})
+    RedBoard[3].y = RedBoard[3].y - 0.01
+    RedBoard[3].z = RedBoard[3].z + 0.91
+end
+
+function RedDeploy4a()
+    local board4 = find_pile(RedPlayerBoard4)
+    board4.setRotationSmooth((({0,0,0})))
+    board4.lock(true)
+    board4.setPosition({RedBoard[4].x, RedBoard[4].y, RedBoard[4].z})
+    RedBoard[4].y = RedBoard[4].y - 0.01
+    RedBoard[4].z = RedBoard[4].z + 0.91
+end
+
+function RedDeploy5a()
+    local board5 = find_pile(RedPlayerBoard5)
+    board5.setRotationSmooth((({0,0,0})))
+    board5.lock(true)
+    board5.setPosition({RedBoard[5].x, RedBoard[5].y, RedBoard[5].z})
+    RedBoard[5].y = RedBoard[5].y - 0.01
+    RedBoard[5].z = RedBoard[5].z + 0.91
+end
+
+function RedDeploy6a()
+    local board6 = find_pile(RedPlayerBoard6)
+    board6.setRotationSmooth((({0,0,0})))
+    board6.lock(true)
+    board6.setPosition({RedBoard[6].x, RedBoard[6].y, RedBoard[6].z})
+    RedBoard[6].y = RedBoard[6].y - 0.01
+    RedBoard[6].z = RedBoard[6].z + 0.91
+end
+
+function RedDeploy7a()
+    local board7 = find_pile(RedPlayerBoard7)
+    board7.setRotationSmooth((({0,0,0})))
+    board7.lock(true)
+    board7.setPosition({RedBoard[7].x, RedBoard[7].y, RedBoard[7].z})
+    RedBoard[7].y = RedBoard[7].y - 0.01
+    RedBoard[7].z = RedBoard[7].z + 0.91
+end
+
+function RedDeploy8a()
+    local board8 = find_pile(RedPlayerBoard8)
+    board8.setRotationSmooth((({0,0,0})))
+    board8.lock(true)
+    board8.setPosition({RedBoard[8].x, RedBoard[8].y, RedBoard[8].z})
+    RedBoard[8].y = RedBoard[8].y - 0.01
+    RedBoard[8].z = RedBoard[8].z + 0.91
+end
+
+function RedDeploy9a()
+    local board9 = find_pile(RedPlayerBoard9)
+    board9.setRotationSmooth((({0,0,0})))
+    board9.lock(true)
+    board9.setPosition({RedBoard[9].x, RedBoard[9].y, RedBoard[9].z})
+    RedBoard[9].y = RedBoard[9].y - 0.01
+    RedBoard[9].z = RedBoard[9].z + 0.91
+end
+
+function RedDeploy10a()
+    local board10 = find_pile(RedPlayerBoard10)
+    board10.setRotationSmooth((({0,0,0})))
+    board10.lock(true)
+    board10.setPosition({RedBoard[10].x, RedBoard[10].y, RedBoard[10].z})
+    RedBoard[10].y = RedBoard[10].y - 0.01
+    RedBoard[10].z = RedBoard[10].z + 0.91
+end
+
+function RedDeploy11a()
+    local board11 = find_pile(RedPlayerBoard11)
+    board11.setRotationSmooth((({0,0,0})))
+    board11.lock(true)
+    board11.setPosition({RedBoard[11].x, RedBoard[11].y, RedBoard[11].z})
+    RedBoard[11].y = RedBoard[11].y - 0.01
+    RedBoard[11].z = RedBoard[11].z + 0.91
+end
+
+function RedDeploy12a()
+    local board12 = find_pile(RedPlayerBoard12)
+    board12.setRotationSmooth((({0,0,0})))
+    board12.lock(true)
+    board12.setPosition({RedBoard[12].x, RedBoard[12].y, RedBoard[12].z})
+    RedBoard[12].y = RedBoard[12].y - 0.01
+    RedBoard[12].z = RedBoard[12].z + 0.91
+end
+
+function PurpleDeploy1a()
+    local board1 = find_pile(PurplePlayerBoard1)
+    board1.setRotationSmooth((({0,0,0})))
+    board1.lock(true)
+    board1.setPosition({PurpleBoard[1].x, PurpleBoard[1].y, PurpleBoard[1].z})
+    PurpleBoard[1].y = PurpleBoard[1].y - 0.01
+    PurpleBoard[1].z = PurpleBoard[1].z + 0.91
+end
+
+function PurpleDeploy2a()
+    local board2 = find_pile(PurplePlayerBoard2)
+    board2.setRotationSmooth((({0,0,0})))
+    board2.lock(true)
+    board2.setPosition({PurpleBoard[2].x, PurpleBoard[2].y, PurpleBoard[2].z})
+    PurpleBoard[2].y = PurpleBoard[2].y - 0.01
+    PurpleBoard[2].z = PurpleBoard[2].z + 0.91
+end
+
+function PurpleDeploy3a()
+    local board3 = find_pile(PurplePlayerBoard3)
+    board3.setRotationSmooth((({0,0,0})))
+    board3.lock(true)
+    board3.setPosition({PurpleBoard[3].x, PurpleBoard[3].y, PurpleBoard[3].z})
+    PurpleBoard[3].y = PurpleBoard[3].y - 0.01
+    PurpleBoard[3].z = PurpleBoard[3].z + 0.91
+end
+
+function PurpleDeploy4a()
+    local board4 = find_pile(PurplePlayerBoard4)
+    board4.setRotationSmooth((({0,0,0})))
+    board4.lock(true)
+    board4.setPosition({PurpleBoard[4].x, PurpleBoard[4].y, PurpleBoard[4].z})
+    PurpleBoard[4].y = PurpleBoard[4].y - 0.01
+    PurpleBoard[4].z = PurpleBoard[4].z + 0.91
+end
+
+function PurpleDeploy5a()
+    local board5 = find_pile(PurplePlayerBoard5)
+    board5.setRotationSmooth((({0,0,0})))
+    board5.lock(true)
+    board5.setPosition({PurpleBoard[5].x, PurpleBoard[5].y, PurpleBoard[5].z})
+    PurpleBoard[5].y = PurpleBoard[5].y - 0.01
+    PurpleBoard[5].z = PurpleBoard[5].z + 0.91
+end
+
+function PurpleDeploy6a()
+    local board6 = find_pile(PurplePlayerBoard6)
+    board6.setRotationSmooth((({0,0,0})))
+    board6.lock(true)
+    board6.setPosition({PurpleBoard[6].x, PurpleBoard[6].y, PurpleBoard[6].z})
+    PurpleBoard[6].y = PurpleBoard[6].y - 0.01
+    PurpleBoard[6].z = PurpleBoard[6].z + 0.91
+end
+
+function PurpleDeploy7a()
+    local board7 = find_pile(PurplePlayerBoard7)
+    board7.setRotationSmooth((({0,0,0})))
+    board7.lock(true)
+    board7.setPosition({PurpleBoard[7].x, PurpleBoard[7].y, PurpleBoard[7].z})
+    PurpleBoard[7].y = PurpleBoard[7].y - 0.01
+    PurpleBoard[7].z = PurpleBoard[7].z + 0.91
+end
+
+function PurpleDeploy8a()
+    local board8 = find_pile(PurplePlayerBoard8)
+    board8.setRotationSmooth((({0,0,0})))
+    board8.lock(true)
+    board8.setPosition({PurpleBoard[8].x, PurpleBoard[8].y, PurpleBoard[8].z})
+    PurpleBoard[8].y = PurpleBoard[8].y - 0.01
+    PurpleBoard[8].z = PurpleBoard[8].z + 0.91
+end
+
+function PurpleDeploy9a()
+    local board9 = find_pile(PurplePlayerBoard9)
+    board9.setRotationSmooth((({0,0,0})))
+    board9.lock(true)
+    board9.setPosition({PurpleBoard[9].x, PurpleBoard[9].y, PurpleBoard[9].z})
+    PurpleBoard[9].y = PurpleBoard[9].y - 0.01
+    PurpleBoard[9].z = PurpleBoard[9].z + 0.91
+end
+
+function PurpleDeploy10a()
+    local board10 = find_pile(PurplePlayerBoard10)
+    board10.setRotationSmooth((({0,0,0})))
+    board10.lock(true)
+    board10.setPosition({PurpleBoard[10].x, PurpleBoard[10].y, PurpleBoard[10].z})
+    PurpleBoard[10].y = PurpleBoard[10].y - 0.01
+    PurpleBoard[10].z = PurpleBoard[10].z + 0.91
+end
+
+function PurpleDeploy11a()
+    local board11 = find_pile(PurplePlayerBoard11)
+    board11.setRotationSmooth((({0,0,0})))
+    board11.lock(true)
+    board11.setPosition({PurpleBoard[11].x, PurpleBoard[11].y, PurpleBoard[11].z})
+    PurpleBoard[11].y = PurpleBoard[11].y - 0.01
+    PurpleBoard[11].z = PurpleBoard[11].z + 0.91
+end
+
+function PurpleDeploy12a()
+    local board12 = find_pile(PurplePlayerBoard12)
+    board12.setRotationSmooth((({0,0,0})))
+    board12.lock(true)
+    board12.setPosition({PurpleBoard[12].x, PurpleBoard[12].y, PurpleBoard[12].z})
+    PurpleBoard[12].y = PurpleBoard[12].y - 0.01
+    PurpleBoard[12].z = PurpleBoard[12].z + 0.91
+end
+
+function SelectStartingPlayer()
+    StartingPlayer.destruct()
+--    local seatedPlayers = getSeatedPlayers()
+--    local PlayerHand = Player[seatedPlayers[math.random(#seatedPlayers)]].getPlayerHand()
+--    StartingPlayerToken.lock(true)
+--    StartingPlayerToken.setPosition({PlayerHand.pos_x + PlayerHand.trigger_forward_x-13, PlayerHand.pos_y, PlayerHand.pos_z})
+    local sector1deck = find_pile(Sector1Deck)
+    local sector2deck = find_pile(Sector2Deck)
+    local sector3deck = find_pile(Sector3Deck)
+    sector1deck.shuffle()
+    sector2deck.shuffle()
+    sector3deck.shuffle()
+    ResupplySector1()
+    ResupplySector2()
+    ResupplySector3()
+    --s = ""
+--    broadcastToAll(PlayerHand.name, PlayerHand.color)
+end
